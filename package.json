@@ -1,0 +1,30 @@
+{
+	"name": "cordova-plugin-file",
+	"version": "1.0.0",
+	"description": "Cordova file plugin",
+	"main": "index.js",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/mbossX/cordova-plugin-file.git"
+	},
+	"keywords": [
+		"file",
+		"android",
+		"ios"
+	],
+	"author": "mboss (https://github.com/mbossX)",
+	"license": "Apache-2.0",
+	"bugs": {
+		"url": "https://github.com/mbossX/cordova-plugin-file/issues"
+	},
+	"cordova": {
+		"id": "cordova-plugin-file",
+		"platforms": [
+			"android",
+			"ios"
+		]
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	}
+}
