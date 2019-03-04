@@ -1,27 +1,59 @@
-cordova.define("cordova-plugin-chooser.Chooser", function (require, exports, module) {
+cordova.define("cordova-plugin-file.File", function (require, exports, module) {
     module.exports = {
-        getFile: function (accept, cb) {
-            return new Promise(function (resolve, reject) {
-                cordova.exec(
-                    function (json, bs) {
-                        if (json === 'RESULT_CANCELED') {
-                            resolve();
-                            cb();
-                            return;
-                        }
-                        try {
-                            cb(json, bs);
-                        }
-                        catch (err) {
-                            reject(err);
-                        }
-                    },
-                    reject,
-                    'Chooser',
-                    'getFile',
-                    [(typeof accept === 'string' ? accept.replace(/\s/g, '') : undefined) || '*/*']
-                );
-            });
+        createDirectory: function (path, cb) {
+            cordova.exec(
+                success => {
+                    cb(success);
+                },
+                cb(false),
+                'File',
+                'createDirectory',
+                [path]
+            );
+        },
+        deleteDirectory: function (path, cb) {
+            cordova.exec(
+                success => {
+                    cb(success);
+                },
+                cb(false),
+                'File',
+                'deleteDirectory',
+                [path]
+            );
+        },
+        readString: function (path, cb) {
+            cordova.exec(
+                txt => {
+                    cb(txt);
+                },
+                cb(null),
+                'File',
+                'readString',
+                [path]
+            );
+        },
+        readBuffer: function (path, cb) {
+            cordova.exec(
+                res => {
+                    cb(res);
+                },
+                cb(null),
+                'File',
+                'readBuffer',
+                [path]
+            );
+        },
+        write: function (args, cb) {
+            cordova.exec(
+                success => {
+                    cb(success);
+                },
+                cb(false),
+                'File',
+                'write',
+                [args]
+            );
         }
     };
 });

@@ -3,33 +3,34 @@
 	xmlns="http://www.phonegap.com/ns/plugins/1.0" 
 	xmlns:android="http://schemas.android.com/apk/res/android" 
 	id="cordova-plugin-file" 
-	version="1.2.5"
+	version="1.0.0"
 >	
 	<name>File</name>
-	<author>Cyph, Inc.</author>
-
+	<author>Mboss.</author>
+	<preference name="PACKAGE" />
 	<js-module src="www/file.js" name="File">
 		<clobbers target="file" />
 	</js-module>
 
 	<platform name="android">
 		<source-file src="src/android/FilePlugin.java" target-dir="src/site/mboss/cordova" />
-
 		<config-file target="config.xml" parent="/*">
 			<feature name="File">
 				<param name="android-package" value="site.mboss.cordova.File" />
 			</feature>
+			<preference name="WECHATAPPID" value="$WECHATAPPID"/>
 		</config-file>
 	</platform>
 
 	<platform name="ios">
-		<source-file src="src/ios/Chooser.swift" />
+		<source-file src="src/ios/FilePlugin.swift" />
 		<dependency id="cordova-plugin-add-swift-support" version="*" />
 
 		<config-file target="config.xml" parent="/*">
-			<feature name="Chooser">
-				<param name="ios-package" value="Chooser" />
+			<feature name="File">
+				<param name="ios-package" value="File" />
 			</feature>
+			<preference name="WECHATAPPID" value="$WECHATAPPID"/>
 		</config-file>
 	</platform>
 </plugin>
